@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECOMMERCE.DOMAIN", "ECOMMERCE.DOMAIN\ECOMMERCE.DOMAIN.csproj", "{EFB369B7-C5F1-4022-A3BE-B5B32414C018}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.Domain", "ECOMMERCE.DOMAIN\Ecommerce.Domain.csproj", "{EFB369B7-C5F1-4022-A3BE-B5B32414C018}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.application", "Ecommerce.application\Ecommerce.application.csproj", "{7B87E0BF-88B2-4DFE-AE25-50E288E37BC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.application", "Ecommerce.application\Ecommerce.application.csproj", "{7B87E0BF-88B2-4DFE-AE25-50E288E37BC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.infrastructure", "Ecommerce.infrastructure\Ecommerce.infrastructure.csproj", "{95739C79-EAD7-46F7-8A88-C106F486D7C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.infrastructure", "Ecommerce.infrastructure\Ecommerce.infrastructure.csproj", "{95739C79-EAD7-46F7-8A88-C106F486D7C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.api", "Ecommerce.api\Ecommerce.api.csproj", "{F9A3FD2A-E505-407E-A561-4F25051A62B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ecommerce.api", "Ecommerce.api\Ecommerce.api.csproj", "{F9A3FD2A-E505-407E-A561-4F25051A62B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
