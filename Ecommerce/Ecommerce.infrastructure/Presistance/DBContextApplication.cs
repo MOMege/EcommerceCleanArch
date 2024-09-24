@@ -11,11 +11,15 @@ namespace Ecommerce.infrastructure.Presistance
 {
     public class DBContextApplication :DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DBContextApplication(DbContextOptions options) : base(options)
         {
-            optionsBuilder.UseSqlServer(@"data source=.;initial catalog=EcommercDB;integrated security=True;MultipleActiveResultSets=True;TrustServerCertificate=True""");
-            base.OnConfiguring(optionsBuilder);
         }
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Data Source=KAMAL\SQLEXPRESS;initial catalog=ShoppindDb;Integrated Security=True ;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        //    base.OnConfiguring(optionsBuilder);
+        //}
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Product { get; set; }
