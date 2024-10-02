@@ -1,6 +1,7 @@
 ﻿using Ecommerce.Domain;
 using ECOMMERCE.DOMAIN;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Graph.Contacts.Item.MemberOf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,19 @@ namespace Ecommerce.infrastructure.Presistance
     {
         public DBContextApplication(DbContextOptions options) : base(options)
         {
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+           
+            modelBuilder.SeedCategoryData();
+            modelBuilder.SeedUserData();
+            modelBuilder.SeedOrderData();
+            modelBuilder.SeedVisaData();
+            modelBuilder.SeedProductData();
+
+            
+            base.OnModelCreating(modelBuilder);
+
         }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.application.Repository
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface IuserRepository : IRepository<User>
     {
 
-     
     }
 }

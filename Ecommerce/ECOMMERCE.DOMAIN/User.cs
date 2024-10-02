@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ecommerce.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace ECOMMERCE.DOMAIN
         public ICollection<Order>? Orders { get; set; }
 
         public ICollection<Review>? Reviews { get; set; }
+        public ICollection<Visa>? Visa { get; set; } 
         [NotMapped]
         public Cart? Cart { get; set; }
     }

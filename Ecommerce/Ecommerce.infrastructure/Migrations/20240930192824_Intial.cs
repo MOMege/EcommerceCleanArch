@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Ecommerce.infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Intial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -79,6 +81,28 @@ namespace Ecommerce.infrastructure.Migrations
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Orders_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Visa",
+                columns: table => new
+                {
+                    VisaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HolderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfExpired = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Cvv = table.Column<double>(type: "float", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Visa", x => x.VisaId);
+                    table.ForeignKey(
+                        name: "FK_Visa_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -162,6 +186,73 @@ namespace Ecommerce.infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "cat1" },
+                    { 2, "cat2" },
+                    { 3, "cat3" },
+                    { 4, "cat4" },
+                    { 5, "cat5" },
+                    { 6, "cat6" },
+                    { 7, "cat7" },
+                    { 8, "cat8" },
+                    { 9, "cat9" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "Email", "FirstName", "LastName", "Password" },
+                values: new object[,]
+                {
+                    { 1, "mohamed@gmail.com", "mohamed", null, "11223" },
+                    { 2, "ali@outlook.com", "ali", null, "22344" },
+                    { 3, "ahmed@outlook.com", "ahmed", null, "22344" },
+                    { 4, "wael@outlook.com", "wael", null, "22344" },
+                    { 5, "ibrahim@outlook.com", "ibrahim", null, "22344" },
+                    { 6, "fouad@outlook.com", "fouad", null, "22344" },
+                    { 7, "modtafa@outlook.com", "mostafa", null, "22344" },
+                    { 8, "khedr@outlook.com", "khedr", null, "22344" },
+                    { 9, "hari@outlook.com", "hari", null, "22344" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Orders",
+                columns: new[] { "Id", "OrderDate", "Status", "TotalAmoun", "UserId" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2326), 0, 4.0, 1 },
+                    { 2, new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2343), 0, 3.0, 8 },
+                    { 3, new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2346), 0, 9.0, 7 },
+                    { 4, new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2347), 0, 33.0, 7 },
+                    { 5, new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2348), 0, 14.0, 2 },
+                    { 6, new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2350), 0, 19.0, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Product",
+                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price", "Stock" },
+                values: new object[,]
+                {
+                    { 1, 1, "electronics", "dell", 34500, 20 },
+                    { 2, 1, "electronics", "hp", 34500, 14 },
+                    { 3, 1, "electronics", "lenovo", 3344, 12 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Visa",
+                columns: new[] { "VisaId", "Cvv", "DateOfExpired", "HolderName", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 0.0, new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2386), "oo HG", 1 },
+                    { 2, 0.0, new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2389), "gg HG", 2 },
+                    { 3, 0.0, new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2391), "kk HG", 3 },
+                    { 4, 0.0, new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2392), "ll HG", 1 },
+                    { 5, 0.0, new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2393), "uu HG", 5 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Images_ProductId",
                 table: "Images",
@@ -196,6 +287,11 @@ namespace Ecommerce.infrastructure.Migrations
                 name: "IX_Reviews_UserId",
                 table: "Reviews",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Visa_UserId",
+                table: "Visa",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -209,6 +305,9 @@ namespace Ecommerce.infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Reviews");
+
+            migrationBuilder.DropTable(
+                name: "Visa");
 
             migrationBuilder.DropTable(
                 name: "Orders");

@@ -1,20 +1,18 @@
-﻿using ECOMMERCE.DOMAIN;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ecommerce.application.Dtos;
+using Ecommerce.application.Repository;
+using ECOMMERCE.DOMAIN;
+
 
 namespace Ecommerce.application.Contract.Interface
 {
-    public interface ICategoryService
+    public interface ICategoryService 
     {
 
-        public Task<List<Category>> GetAllCategories();
+        public Task< IEnumerable<Category>> GetAllCategories();
 
         public Task<Category> GetCategoryById(int id);
 
-        public Task CreateCategory(Category category);
+        public Task CreateCategory(DtoCategory dtoCategory);
 
         public Task UpdateCategory(Category category);
 

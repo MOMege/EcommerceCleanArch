@@ -1,4 +1,4 @@
-﻿using ECOMMERCE.DOMAIN;
+﻿using Ecommerce.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.application.Repository
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface IProductRepository : IRepository<Product>
     {
-
-     
     }
 }

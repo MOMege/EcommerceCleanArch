@@ -1,4 +1,5 @@
 ﻿using Ecommerce.application.Contract.Interface;
+using Ecommerce.application.Dtos;
 using ECOMMERCE.DOMAIN;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -34,9 +35,9 @@ namespace Ecommerce.api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCategory(Category category)
+        public async Task<IActionResult> CreateCategory(DtoCategory dtoCategory)
         {
-            await _categoryService.CreateCategory(category);
+            await _categoryService.CreateCategory(dtoCategory);
             return Ok();
         }
 

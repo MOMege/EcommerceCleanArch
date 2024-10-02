@@ -1,4 +1,6 @@
-﻿using Ecommerce.application.Contract.Interface;
+﻿using AutoMapper;
+using Ecommerce.application.Contract.Interface;
+using Ecommerce.application.Dtos;
 using Ecommerce.application.Repository;
 using ECOMMERCE.DOMAIN;
 using System;
@@ -12,33 +14,40 @@ namespace Ecommerce.application.Contract.Service
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IMapper _mapper;       
 
-        public CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository, IMapper mapper)
         {
             _categoryRepository = categoryRepository;
-        }
-        public async Task CreateCategory(Category category)
-        {
-            await _categoryRepository.createCategory(category);
-        }
-        public Task DeleteCategory(int id)
-        {
-            throw new NotImplementedException();
+            _mapper = mapper;
+           
         }
 
-        public Task<List<Category>> GetAllCategories()
+        public async Task CreateCategory(DtoCategory dtoCategory)
         {
-            throw new NotImplementedException();
+            var catmapModel = _mapper.Map<Category>(dtoCategory);
+            await _categoryRepository.AddAsync(catmapModel);
+        }
+
+        public async Task DeleteCategory(int id)
+        {
+            await _categoryRepository.DeleteAsync(id);
+        }
+
+        public Task<IEnumerable<Category>> GetAllCategories()
+        {
+            return _categoryRepository.GetAllAsync();
         }
 
         public Task<Category> GetCategoryById(int id)
         {
-            throw new NotImplementedException();
+            return _categoryRepository.GetByIdAsync(id);
         }
 
-        public Task UpdateCategory(Category category)
+        public  async Task UpdateCategory(Category category)
         {
-            throw new NotImplementedException();
+            var catmapModel = _mapper.Map<Category>(category);
+            await _categoryRepository.UpdateAsync(catmapModel);
         }
     }
 }

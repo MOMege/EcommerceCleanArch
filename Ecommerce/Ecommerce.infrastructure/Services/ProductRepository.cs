@@ -1,18 +1,17 @@
 ﻿using Ecommerce.application.Repository;
+using Ecommerce.Domain;
 using Ecommerce.infrastructure.Presistance;
-using ECOMMERCE.DOMAIN;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Ecommerce.infrastructure.Services
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    internal class ProductRepository : Repository<Product>, IProductRepository
     {
-        public CategoryRepository(DBContextApplication context) : base(context)
+        public ProductRepository(DBContextApplication context) : base(context)
         {
         }
     }

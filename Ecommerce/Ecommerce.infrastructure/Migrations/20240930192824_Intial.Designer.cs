@@ -4,6 +4,7 @@ using Ecommerce.infrastructure.Presistance;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ecommerce.infrastructure.Migrations
 {
     [DbContext(typeof(DBContextApplication))]
-    partial class DBContextApplicationModelSnapshot : ModelSnapshot
+    [Migration("20240930192824_Intial")]
+    partial class Intial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,7 +141,7 @@ namespace Ecommerce.infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            OrderDate = new DateTime(2024, 10, 2, 19, 28, 20, 933, DateTimeKind.Local).AddTicks(612),
+                            OrderDate = new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2326),
                             Status = 0,
                             TotalAmoun = 4.0,
                             UserId = 1
@@ -146,7 +149,7 @@ namespace Ecommerce.infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            OrderDate = new DateTime(2024, 10, 2, 19, 28, 20, 933, DateTimeKind.Local).AddTicks(647),
+                            OrderDate = new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2343),
                             Status = 0,
                             TotalAmoun = 3.0,
                             UserId = 8
@@ -154,7 +157,7 @@ namespace Ecommerce.infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            OrderDate = new DateTime(2024, 10, 2, 19, 28, 20, 933, DateTimeKind.Local).AddTicks(650),
+                            OrderDate = new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2346),
                             Status = 0,
                             TotalAmoun = 9.0,
                             UserId = 7
@@ -162,7 +165,7 @@ namespace Ecommerce.infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            OrderDate = new DateTime(2024, 10, 2, 19, 28, 20, 933, DateTimeKind.Local).AddTicks(654),
+                            OrderDate = new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2347),
                             Status = 0,
                             TotalAmoun = 33.0,
                             UserId = 7
@@ -170,7 +173,7 @@ namespace Ecommerce.infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            OrderDate = new DateTime(2024, 10, 2, 19, 28, 20, 933, DateTimeKind.Local).AddTicks(661),
+                            OrderDate = new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2348),
                             Status = 0,
                             TotalAmoun = 14.0,
                             UserId = 2
@@ -178,7 +181,7 @@ namespace Ecommerce.infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            OrderDate = new DateTime(2024, 10, 2, 19, 28, 20, 933, DateTimeKind.Local).AddTicks(664),
+                            OrderDate = new DateTime(2024, 9, 30, 22, 28, 24, 761, DateTimeKind.Local).AddTicks(2350),
                             Status = 0,
                             TotalAmoun = 19.0,
                             UserId = 3
@@ -430,7 +433,7 @@ namespace Ecommerce.infrastructure.Migrations
                         {
                             VisaId = 1,
                             Cvv = 0.0,
-                            DateOfExpired = new DateTime(2024, 10, 2, 16, 28, 20, 933, DateTimeKind.Utc).AddTicks(762),
+                            DateOfExpired = new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2386),
                             HolderName = "oo HG",
                             UserId = 1
                         },
@@ -438,7 +441,7 @@ namespace Ecommerce.infrastructure.Migrations
                         {
                             VisaId = 2,
                             Cvv = 0.0,
-                            DateOfExpired = new DateTime(2024, 10, 2, 16, 28, 20, 933, DateTimeKind.Utc).AddTicks(767),
+                            DateOfExpired = new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2389),
                             HolderName = "gg HG",
                             UserId = 2
                         },
@@ -446,7 +449,7 @@ namespace Ecommerce.infrastructure.Migrations
                         {
                             VisaId = 3,
                             Cvv = 0.0,
-                            DateOfExpired = new DateTime(2024, 10, 2, 16, 28, 20, 933, DateTimeKind.Utc).AddTicks(774),
+                            DateOfExpired = new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2391),
                             HolderName = "kk HG",
                             UserId = 3
                         },
@@ -454,7 +457,7 @@ namespace Ecommerce.infrastructure.Migrations
                         {
                             VisaId = 4,
                             Cvv = 0.0,
-                            DateOfExpired = new DateTime(2024, 10, 2, 16, 28, 20, 933, DateTimeKind.Utc).AddTicks(777),
+                            DateOfExpired = new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2392),
                             HolderName = "ll HG",
                             UserId = 1
                         },
@@ -462,7 +465,7 @@ namespace Ecommerce.infrastructure.Migrations
                         {
                             VisaId = 5,
                             Cvv = 0.0,
-                            DateOfExpired = new DateTime(2024, 10, 2, 16, 28, 20, 933, DateTimeKind.Utc).AddTicks(780),
+                            DateOfExpired = new DateTime(2024, 9, 30, 19, 28, 24, 761, DateTimeKind.Utc).AddTicks(2393),
                             HolderName = "uu HG",
                             UserId = 5
                         });

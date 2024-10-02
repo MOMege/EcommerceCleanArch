@@ -1,18 +1,28 @@
+using Ecommerce.api;
+using Ecommerce.application.Behavior.validatior;
 using Ecommerce.application.Contract.Interface;
 using Ecommerce.application.Contract.Service;
-using Ecommerce.application.Repository;
+using Ecommerce.application.Mapper;
 using Ecommerce.infrastructure.Presistance;
-using Ecommerce.infrastructure.Services;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Add services to the container.
 builder.Services.AddDbContext<DBContextApplication>(options =>
-     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddApiServices(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(CategoryProfile).Assembly);
+builder.Services.AddValidatorsFromAssemblyContaining<CategoryValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<ProductValidator>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,11 +1,7 @@
 ﻿using Ecommerce.application.Repository;
 using Ecommerce.infrastructure.Presistance;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Ecommerce.infrastructure.Services
 {
@@ -37,8 +33,9 @@ namespace Ecommerce.infrastructure.Services
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
-        {  
+        { 
             return await _dbSet.ToListAsync();
+
         }
         public  async Task<T> GetByIdAsync(int id)
         {
