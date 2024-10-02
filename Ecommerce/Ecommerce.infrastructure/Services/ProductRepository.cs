@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.infrastructure.Services
 {
-    internal class ProductRepository : Repository<Product>, IProductRepository
+    public class ProductRepository : Repository<Product>, IProductRepository
     {
         public ProductRepository(DBContextApplication context) : base(context)
         {

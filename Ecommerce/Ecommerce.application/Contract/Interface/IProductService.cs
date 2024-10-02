@@ -11,14 +11,14 @@ namespace Ecommerce.application.Contract.Interface
 {
     public interface IProductService
     {
+        public Task CreateProduct(Product product);
+        public Task DeleteProduct(int id);
         public Task<IEnumerable<Product>> GetAllproducts();
 
         public Task<Product> GetproductById(int id);
 
-        public Task CreateProduct(Product product);
-
         public Task UpdateProduct(Product product);
 
-        public Task DeleteProduct(int id);
+        
     }
 }

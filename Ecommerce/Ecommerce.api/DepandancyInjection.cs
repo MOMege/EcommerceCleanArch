@@ -17,11 +17,8 @@ namespace Ecommerce.api
         { 
             Services.AddScoped<ICategoryRepository, CategoryRepository>();
             Services.AddScoped<ICategoryService, CategoryService>();
+            Services.AddScoped<IProductRepository, ProductRepository>();
             Services.AddScoped<IProductService, ProductService>();
-            Services.AddScoped<IProductService, ProductService>();
-
-
-
             return Services;
         }
 

@@ -14,18 +14,16 @@ namespace Ecommerce.application.Contract.Service
     public class ProductService :  IProductService
     {
         private readonly IProductRepository _productrepository;
-        private readonly IMapper _mapper;
-        public ProductService(IProductRepository productrepositry, IMapper mapper) {
+        
+        public ProductService(IProductRepository productrepositry) {
             _productrepository = productrepositry;
-            _mapper = mapper;
+        
         
         }
 
         public async Task CreateProduct(Product product)
         {
-
-            var catmapModel = _mapper.Map<Product>(product);
-            await _productrepository.AddAsync(catmapModel);
+            await _productrepository.AddAsync(product);
         }
 
         public async Task DeleteProduct(int id)
@@ -45,8 +43,8 @@ namespace Ecommerce.application.Contract.Service
 
         public async  Task UpdateProduct(Product product)
         {
-            var catmapModel = _mapper.Map<Product>(product);
-            await _productrepository.UpdateAsync(catmapModel);
+            
+            await _productrepository.UpdateAsync(product);
         }
     }
 }
