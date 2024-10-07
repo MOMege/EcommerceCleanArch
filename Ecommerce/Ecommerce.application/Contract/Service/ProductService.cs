@@ -46,5 +46,9 @@ namespace Ecommerce.application.Contract.Service
             
             await _productrepository.UpdateAsync(product);
         }
+        public  async Task<IEnumerable<Product>> GetProducts() 
+        {
+            return await _productrepository.GetProducts();
+        }
     }
 }

@@ -10,5 +10,8 @@ namespace Ecommerce.application.Repository
 {
     public interface IProductRepository : IRepository<Product>
     {
+        Task<List<Product>> GetProducts();
+
+        Task AddCategoryByProductId(int  productId);
     }
 }

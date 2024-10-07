@@ -18,10 +18,18 @@ namespace Ecommerce.api.Controllers
         {
             _productservice = productservice;
         }
+        // user story As a product, I should display my details.
         [HttpGet]
         public async Task<IActionResult> GetAllProduct()
         {
             var products = await _productservice.GetAllproducts();
+            return Ok(products);
+        }
+        // User Story :- As a product, I should retrieve all products 
+        [HttpGet]
+        public async Task<IActionResult> GetProducts()
+        {
+            var products = await _productservice.GetProducts();
             return Ok(products);
         }
 
@@ -35,12 +43,15 @@ namespace Ecommerce.api.Controllers
             return Ok(product);
         }
 
+        //- As a product, I should add new products.
         [HttpPost]
         public async Task<IActionResult> CreateProduct(Product product)
         {
             await _productservice.CreateProduct(product);
             return Ok();
         }
+
+        //- As a product, I should edit my info.
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, Product product)
@@ -51,7 +62,7 @@ namespace Ecommerce.api.Controllers
             await _productservice.UpdateProduct(product);
             return Ok();
         }
-
+        // - As a product, I should delete it.
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {

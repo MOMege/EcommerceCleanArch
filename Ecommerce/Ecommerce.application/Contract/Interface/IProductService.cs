@@ -19,6 +19,8 @@ namespace Ecommerce.application.Contract.Interface
 
         public Task UpdateProduct(Product product);
 
+        public Task<IEnumerable<Product>> GetProducts();
+
         
     }
 }
